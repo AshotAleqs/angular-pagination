@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.page-item {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page-item:not(:first-child):not(.active):not(.pagination-next)::before {
+  content: "";
+  display: block;
+  border-right: 1px solid black;
+  height: 10px;
+  position: absolute;
+  left: 0;
+}
+
+.page-item.active+li.page-item::before,
+.page-item.pagination-prev+li.page-item::before {
+  display: none
+}
+
+.page-item a {
+  text-decoration: none;
+}
+
+.page-item.disabled {
+  opacity: 0.6;
+  color: var(--disabled-color)
+}
+
+.page-item.active {
+  background-color: var(--gradient);
+  color: var(--primary-contrast)
+}
